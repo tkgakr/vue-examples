@@ -1,0 +1,33 @@
+import js from '@eslint/js'
+import configPrettier from 'eslint-config-prettier'
+import pluginVue from 'eslint-plugin-vue'
+import tseslint from 'typescript-eslint'
+import vueParser from 'vue-eslint-parser'
+
+export default tseslint.config(
+  {
+    ignores: ['dist', 'coverage', 'node_modules'],
+  },
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
+  ...pluginVue.configs['flat/recommended'],
+  {
+    files: ['**/*.vue'],
+    languageOptions: {
+      parser: vueParser,
+      parserOptions: {
+        parser: tseslint.parser,
+        extraFileExtensions: ['.vue'],
+        sourceType: 'module',
+      },
+    },
+  },
+  {
+    rules: {
+      '@typescript-eslint/no-unused-vars': 'warn',
+      'vue/component-api-style': ['error', ['script-setup', 'composition']],
+      'vue/multi-word-component-names': 'off',
+    },
+  },
+  configPrettier,
+)
