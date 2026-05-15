@@ -13,27 +13,17 @@
 
 ## セットアップ
 
-このプロジェクトでは bun を想定しています。
+このプロジェクトでは npm と `package-lock.json` を使います。
 
 ```sh
-bun install
+npm ci
 ```
 
-この環境に bun がない場合は npm でも実行できます。
+`.npmrc` で依存パッケージの lifecycle scripts は既定で無効化しています。新しい依存を追加するときは、パッケージと lockfile の差分を確認してから追加してください。
 
-```sh
-npm install
-```
+繰り返し使うツールは `npx` で都度取得せず、`devDependencies` に追加して lockfile で固定します。一度だけ実行する場合も `npx example-package@1.2.3` のように明示的なバージョンを指定してください。
 
 ## コマンド
-
-```sh
-bun run dev
-bun run build
-bun run check
-```
-
-npm の場合:
 
 ```sh
 npm run dev
@@ -46,4 +36,8 @@ npm run check
 ```sh
 npm run build
 npm run check
+npm run audit
+npm run audit:signatures
 ```
+
+サプライチェーン対策の運用ルールは [SECURITY.md](./SECURITY.md) を参照してください。

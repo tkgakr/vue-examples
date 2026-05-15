@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "packageManager": "bun@1.2.15",
+  "packageManager": "npm@11.11.0",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
@@ -15,7 +15,9 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "check": "vue-tsc --noEmit && eslint . && prettier --check . && vitest run"
+    "check": "vue-tsc --noEmit && eslint . && prettier --check . && vitest run",
+    "audit": "npm audit --audit-level=moderate --cache ./.npm-cache",
+    "audit:signatures": "npm audit signatures --cache ./.npm-cache"
   },
   "dependencies": {
     "vue": "^3.5.24",
