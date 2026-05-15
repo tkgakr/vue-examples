@@ -36,6 +36,8 @@ npm run check
 ```sh
 npm run build
 npm run check
+npm run check:supply-chain
+npm run --silent sbom
 npm run audit
 npm run audit:signatures
 ```

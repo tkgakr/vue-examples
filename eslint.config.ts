@@ -23,6 +23,16 @@ export default tseslint.config(
     },
   },
   {
+    files: ['scripts/**/*.mjs'],
+    languageOptions: {
+      globals: {
+        URL: 'readonly',
+        console: 'readonly',
+        process: 'readonly',
+      },
+    },
+  },
+  {
     rules: {
       '@typescript-eslint/no-unused-vars': 'warn',
       'vue/component-api-style': ['error', ['script-setup', 'composition']],
