@@ -2,6 +2,8 @@
 
 [Vue Examples](https://ja.vuejs.org/examples/) を Composition API、SFC、TypeScript で写経する学習用プロジェクトです。
 
+このリポジトリは Mac ローカルでの学習用途を前提にし、外部公開や共同開発は想定していません。ブランチ運用も `main` のみとし、GitHub Actions や Dependabot などの GitHub 側の自動運用は使わず、必要な確認は手元で実行します。
+
 ## 構成
 
 - Vue 3
@@ -33,13 +35,19 @@ npm run check
 
 ## 検証
 
+通常は次のコマンドで確認します。
+
 ```sh
 npm run build
 npm run check
+```
+
+依存関係を追加・更新したときや、lockfile の差分を確認したいときだけ、必要に応じて次を実行します。
+
+```sh
 npm run check:supply-chain
-npm run --silent sbom
 npm run audit
 npm run audit:signatures
 ```
 
-サプライチェーン対策の運用ルールは [SECURITY.md](./SECURITY.md) を参照してください。
+ローカル学習用としての依存関係の扱いは [SECURITY.md](./SECURITY.md) を参照してください。
