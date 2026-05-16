@@ -1,5 +1,5 @@
 import js from '@eslint/js'
-import configPrettier from 'eslint-config-prettier'
+import stylistic from '@stylistic/eslint-plugin'
 import pluginVue from 'eslint-plugin-vue'
 import tseslint from 'typescript-eslint'
 import vueParser from 'vue-eslint-parser'
@@ -11,6 +11,14 @@ export default tseslint.config(
   js.configs.recommended,
   ...tseslint.configs.recommended,
   ...pluginVue.configs['flat/recommended'],
+  stylistic.configs.customize({
+    indent: 2,
+    semi: false,
+    quotes: 'single',
+    commaDangle: 'always-multiline',
+    arrowParens: true,
+    braceStyle: '1tbs',
+  }),
   {
     files: ['**/*.vue'],
     languageOptions: {
@@ -39,5 +47,4 @@ export default tseslint.config(
       'vue/multi-word-component-names': 'off',
     },
   },
-  configPrettier,
 )

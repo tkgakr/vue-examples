@@ -34,10 +34,17 @@ const groupedRoutes = computed<ExampleGroup[]>(() => {
       class="example-group"
       :aria-labelledby="`${group.category}-heading`"
     >
-      <h2 :id="`${group.category}-heading`">{{ group.category }}</h2>
+      <h2 :id="`${group.category}-heading`">
+        {{ group.category }}
+      </h2>
       <ul>
-        <li v-for="route in group.routes" :key="route.path">
-          <RouterLink :to="route.path">{{ route.meta?.title }}</RouterLink>
+        <li
+          v-for="route in group.routes"
+          :key="route.path"
+        >
+          <RouterLink :to="route.path">
+            {{ route.meta?.title }}
+          </RouterLink>
         </li>
       </ul>
     </section>

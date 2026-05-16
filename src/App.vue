@@ -6,8 +6,16 @@ import { exampleRoutes } from './router'
 
 <template>
   <div class="app-shell">
-    <aside class="sidebar" aria-label="Example navigation">
-      <RouterLink class="brand" to="/">Vue Examples</RouterLink>
+    <aside
+      class="sidebar"
+      aria-label="Example navigation"
+    >
+      <RouterLink
+        class="brand"
+        to="/"
+      >
+        Vue Examples
+      </RouterLink>
       <nav>
         <RouterLink
           v-for="route in exampleRoutes"

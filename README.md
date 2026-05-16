@@ -10,7 +10,7 @@
 - Vite
 - TypeScript
 - Vue Router
-- ESLint / Prettier
+- ESLint / ESLint Stylistic
 - Vitest / Vue Test Utils
 
 ## セットアップ
