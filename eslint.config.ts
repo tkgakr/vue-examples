@@ -1,6 +1,7 @@
 import js from '@eslint/js'
 import stylistic from '@stylistic/eslint-plugin'
 import pluginVue from 'eslint-plugin-vue'
+import globals from 'globals'
 import tseslint from 'typescript-eslint'
 import vueParser from 'vue-eslint-parser'
 
@@ -19,6 +20,14 @@ export default tseslint.config(
     arrowParens: true,
     braceStyle: '1tbs',
   }),
+  {
+    files: ['**/*.{ts,vue}'],
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+      },
+    },
+  },
   {
     files: ['**/*.vue'],
     languageOptions: {
