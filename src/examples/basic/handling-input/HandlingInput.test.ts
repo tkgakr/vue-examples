@@ -11,21 +11,19 @@ describe('HandlingInput', () => {
 
   it('Reverse Message ボタンを押すとメッセージが反転する', async () => {
     const wrapper = mount(HandlingInput)
-    const buttons = wrapper.findAll('button')
 
-    await buttons[0].trigger('click')
+    await wrapper.get('#reverse-message-button').trigger('click')
 
     expect(wrapper.get('h1').text()).toBe('!dlroW olleH')
   })
 
   it('Append "!" ボタンを押すと末尾に "!" が追加される', async () => {
     const wrapper = mount(HandlingInput)
-    const buttons = wrapper.findAll('button')
 
-    await buttons[1].trigger('click')
+    await wrapper.get('#append-exclamation-button').trigger('click')
     expect(wrapper.get('h1').text()).toBe('Hello World!!')
 
-    await buttons[1].trigger('click')
+    await wrapper.get('#append-exclamation-button').trigger('click')
     expect(wrapper.get('h1').text()).toBe('Hello World!!!')
   })
 

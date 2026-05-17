@@ -27,12 +27,18 @@ function notify() {
   method/function にバインドする。
   `@ckick` は `v-on:click` の省略記法。
   -->
-  <button @click="reverseMessage">
+  <button
+    id="reverse-message-button"
+    @click="reverseMessage"
+  >
     Reverce Message
   </button>
 
   <!-- インラインで式を書くこともできる。 -->
-  <button @click="message += '!'">
+  <button
+    id="append-exclamation-button"
+    @click="message += '!'"
+  >
     Append "!"
   </button>
 
