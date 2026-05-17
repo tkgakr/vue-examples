@@ -101,11 +101,11 @@ cat <<EOF
 
 \`src/router/index.ts\` の \`exampleRoutes\` にルートを追加してください。
 
-   \`\`\`ts
-   {
-     path: '/${category}/${example_name}',
-     component: () => import('@/examples/${category}/${example_name}/${component_name}.vue'),
-     meta: { category: '${category_title}', title: '${example_title}' },
-   },
-   \`\`\`
+  \`\`\`ts
+  {
+    path: '/${category}/${example_name}',
+    component: () => import('@/examples/${category}/${example_name}/${component_name}.vue'),
+    meta: { category: '${category_title}', title: '${example_title}' },
+  },
+  \`\`\`
 EOF
