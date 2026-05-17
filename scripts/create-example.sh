@@ -71,9 +71,21 @@ if [[ -e $example_dir ]]; then
 fi
 
 mkdir -p "$example_dir"
-touch \
-  "${example_dir}/${component_name}.vue" \
-  "${example_dir}/${component_name}.test.ts"
+touch "${example_dir}/${component_name}.test.ts"
+
+cat > "${example_dir}/${component_name}.vue" <<'EOF'
+<script setup>
+
+</script>
+
+<template>
+
+</template>
+
+<style>
+
+</style>
+EOF
 
 cat > "${example_dir}/README.md" <<EOF
 # ${example_title}
