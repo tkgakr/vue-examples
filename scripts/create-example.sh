@@ -71,7 +71,6 @@ if [[ -e $example_dir ]]; then
 fi
 
 mkdir -p "$example_dir"
-touch "${example_dir}/${component_name}.test.ts"
 
 cat > "${example_dir}/${component_name}.vue" <<'EOF'
 <script setup>
@@ -85,6 +84,18 @@ cat > "${example_dir}/${component_name}.vue" <<'EOF'
 <style>
 
 </style>
+EOF
+
+cat > "${example_dir}/${component_name}.test.ts" <<EOF
+import { mount } from '@vue/test-utils'
+
+import ${component_name} from './${component_name}.vue'
+
+describe('${component_name}', () => {
+  it('${example_title}', () => {
+    const wrapper = mount(${component_name})
+  })
+})
 EOF
 
 cat > "${example_dir}/README.md" <<EOF
