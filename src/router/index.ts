@@ -6,6 +6,11 @@ export const exampleRoutes = [
     component: () => import('@/examples/basic/hello-world/HelloWorld.vue'),
     meta: { category: 'Basic', title: 'Hello World' },
   },
+  {
+    path: '/basic/handling-input',
+    component: () => import('@/examples/basic/handling-input/HandlingInput.vue'),
+    meta: { category: 'Basic', title: 'Handling User Input' },
+  },
 ] satisfies RouteRecordRaw[]
 
 const routes: RouteRecordRaw[] = [
