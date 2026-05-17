@@ -32,51 +32,41 @@ src/
 
 ## 課題の追加手順
 
-`Hello World` がある `src/examples/basic/hello-world/` と同じ並びに、次の課題として `Handling User Input` を追加する場合の手順です。
+`Hello World` がある `src/examples/basic/hello-world/` と同じ並びに、次の課題として `Handling Input` を追加する場合の手順です。
 
-1. 課題用ディレクトリを作成します。
+1. 課題用ファイルを生成します。
 
    ```sh
-   mkdir -p src/examples/basic/handling-user-input
+   scripts/create-example.sh basic handling-input
    ```
 
-2. 課題コンポーネントを作成します。
+   第1引数にはカテゴリを、第2引数には課題名をケバブケースで指定します。上の例では次のファイルが作成されます。
 
    ```text
-   src/examples/basic/handling-user-input/HandlingUserInput.vue
+   src/examples/basic/handling-input/HandlingInput.vue
+   src/examples/basic/handling-input/HandlingInput.test.ts
+   src/examples/basic/handling-input/README.md
    ```
 
-   既存の `HelloWorld.vue` と同じように、`<script setup lang="ts">`、`<template>`、必要なら `<style scoped>` で構成します。
+2. 課題コンポーネントとテストを実装し、学習メモを記録します。
 
-3. 必要に応じてテストを作成します。
+   既存の `HelloWorld.vue` と同じように、コンポーネントは `<script setup lang="ts">`、`<template>`、必要なら `<style scoped>` で構成します。テストは Vue Test Utils の `mount` を使い、画面表示や入力操作で変わる状態を確認します。`README.md` には学んだこと、気になったこと、公式との差分を記録します。
 
-   ```text
-   src/examples/basic/handling-user-input/HandlingUserInput.test.ts
-   ```
+3. `src/router/index.ts` の `exampleRoutes` にルートを追加します。
 
-   Vue Test Utils の `mount` を使い、画面表示や入力操作で変わる状態を確認します。
-
-4. 学習メモを作成します。
-
-   ```text
-   src/examples/basic/handling-user-input/README.md
-   ```
-
-   学んだこと、気になったこと、公式との差分を記録します。
-
-5. `src/router/index.ts` の `exampleRoutes` にルートを追加します。
+   `scripts/create-example.sh` の実行後に表示されるルート定義をコピーして貼り付けます。
 
    ```ts
    {
-     path: '/basic/handling-user-input',
-     component: () => import('@/examples/basic/handling-user-input/HandlingUserInput.vue'),
-     meta: { category: 'Basic', title: 'Handling User Input' },
+     path: '/basic/handling-input',
+     component: () => import('@/examples/basic/handling-input/HandlingInput.vue'),
+     meta: { category: 'Basic', title: 'Handling Input' },
    },
    ```
 
    `Home.vue` は `exampleRoutes` を読み取って一覧を作るため、ここへ追加するとホーム画面にも自動で表示されます。
 
-6. 動作確認します。
+4. 動作確認します。
 
    ```sh
    npm run check
