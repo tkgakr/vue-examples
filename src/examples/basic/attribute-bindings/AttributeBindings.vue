@@ -29,15 +29,18 @@ function toggleColor() {
   class への v-bind では、単純な文字列に加えて、オブジェクトや配列も特別にサポートされています
   -->
   <p
-    :class="{ red: isRed}"
+    :class="{ red: isRed }"
     @click="toggleRed"
   >
     ここは赤く表示されるはずですが...クリックして表示を切り替えてください。
   </p>
 
-  <!-- style へのバインドも、オブジェクトや配列をサポートしています -->
+  <!--
+  style へのバインドも、オブジェクトや配列をサポートしています
+  プロパティと変数が同一の場合は、省略可能(↓は{ color: color }と同義)
+  -->
   <p
-    :style="{ color}"
+    :style="{ color }"
     @click="toggleColor"
   >
     ここは緑になるはずですが、クリックすれば緑と青が切り替わります。
