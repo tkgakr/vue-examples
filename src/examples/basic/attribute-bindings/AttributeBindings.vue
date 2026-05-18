@@ -2,7 +2,7 @@
 ここでは、要素の属性やプロパティをステートにリアクティブにバインドしています。
 :title という構文は、v-bind:title の省略形です。
 -->
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 
 const message = ref('Hello World!')
@@ -37,7 +37,7 @@ function toggleColor() {
 
   <!--
   style へのバインドも、オブジェクトや配列をサポートしています
-  プロパティと変数が同一の場合は、省略可能(↓は{ color: color }と同義)
+  下の `{ color }` は JavaScript のオブジェクトショートハンドで、`{ color: color }` と同じ意味です
   -->
   <p
     :style="{ color }"
