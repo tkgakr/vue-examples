@@ -11,6 +11,11 @@ export const exampleRoutes = [
     component: () => import('@/examples/basic/handling-input/HandlingInput.vue'),
     meta: { category: 'Basic', title: 'Handling User Input' },
   },
+  {
+    path: '/basic/attribute-bindings',
+    component: () => import('@/examples/basic/attribute-bindings/AttributeBindings.vue'),
+    meta: { category: 'Basic', title: 'Attribute Bindings' },
+  },
 ] satisfies RouteRecordRaw[]
 
 const routes: RouteRecordRaw[] = [
