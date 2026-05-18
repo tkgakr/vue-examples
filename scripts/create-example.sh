@@ -73,7 +73,7 @@ fi
 mkdir -p "$example_dir"
 
 cat > "${example_dir}/${component_name}.vue" <<'EOF'
-<script setup>
+<script setup lang="ts">
 
 </script>
 
@@ -106,10 +106,6 @@ cat > "${example_dir}/README.md" <<EOF
 -
 
 ## 気になったこと
-
--
-
-## 公式との差分
 
 -
 
