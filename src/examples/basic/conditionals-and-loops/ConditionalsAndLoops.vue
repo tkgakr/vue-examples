@@ -9,16 +9,28 @@ const list = ref([1, 2, 3])
 </script>
 
 <template>
-  <button @click="show = !show">
+  <button
+    id="toggle-list-button"
+    @click="show = !show"
+  >
     Toggle List
   </button>
-  <button @click="list.push(list.length + 1)">
+  <button
+    id="push-number-button"
+    @click="list.push(list.length + 1)"
+  >
     Push Number
   </button>
-  <button @click="list.pop()">
+  <button
+    id="pop-number-button"
+    @click="list.pop()"
+  >
     Pop Number
   </button>
-  <button @click="list.reverse()">
+  <button
+    id="reverse-list-button"
+    @click="list.reverse()"
+  >
     Reverse List
   </button>
 

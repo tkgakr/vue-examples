@@ -14,7 +14,7 @@ describe('ConditionalsAndLoops', () => {
   it('Toggle List ボタンを押すとリストが非表示になり、代替メッセージが表示される', async () => {
     const wrapper = mount(ConditionalsAndLoops)
 
-    await wrapper.findAll('button')[0].trigger('click')
+    await wrapper.get('#toggle-list-button').trigger('click')
 
     expect(wrapper.find('ul').exists()).toBe(false)
     expect(wrapper.get('p').text()).toBe('List is not empty, but hidden.')
@@ -23,7 +23,7 @@ describe('ConditionalsAndLoops', () => {
   it('Push Number ボタンを押すと末尾に要素が追加される', async () => {
     const wrapper = mount(ConditionalsAndLoops)
 
-    await wrapper.findAll('button')[1].trigger('click')
+    await wrapper.get('#push-number-button').trigger('click')
 
     const items = wrapper.findAll('li')
     expect(items).toHaveLength(4)
@@ -33,7 +33,7 @@ describe('ConditionalsAndLoops', () => {
   it('Pop Number ボタンを押すと末尾の要素が削除される', async () => {
     const wrapper = mount(ConditionalsAndLoops)
 
-    await wrapper.findAll('button')[2].trigger('click')
+    await wrapper.get('#pop-number-button').trigger('click')
 
     const items = wrapper.findAll('li')
     expect(items).toHaveLength(2)
@@ -43,7 +43,7 @@ describe('ConditionalsAndLoops', () => {
   it('Reverse List ボタンを押すとリストが逆順になる', async () => {
     const wrapper = mount(ConditionalsAndLoops)
 
-    await wrapper.findAll('button')[3].trigger('click')
+    await wrapper.get('#reverse-list-button').trigger('click')
 
     const items = wrapper.findAll('li')
     expect(items.map((i) => i.text())).toEqual(['3', '2', '1'])
@@ -52,9 +52,9 @@ describe('ConditionalsAndLoops', () => {
   it('リストが空のときは "List is empty." が表示される', async () => {
     const wrapper = mount(ConditionalsAndLoops)
 
-    await wrapper.findAll('button')[2].trigger('click')
-    await wrapper.findAll('button')[2].trigger('click')
-    await wrapper.findAll('button')[2].trigger('click')
+    await wrapper.get('#pop-number-button').trigger('click')
+    await wrapper.get('#pop-number-button').trigger('click')
+    await wrapper.get('#pop-number-button').trigger('click')
 
     expect(wrapper.find('ul').exists()).toBe(false)
     expect(wrapper.get('p').text()).toBe('List is empty.')
