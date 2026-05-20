@@ -8,10 +8,10 @@ describe('FormBindings', () => {
 
     const input = wrapper.get('#textbox')
     expect((input.element as HTMLInputElement).value).toBe('Edit me')
-    expect(wrapper.findAll('p')[0].text()).toBe('Edit me')
+    expect(wrapper.get('#text-output').text()).toBe('Edit me')
 
     await input.setValue('Hello')
-    expect(wrapper.findAll('p')[0].text()).toBe('Hello')
+    expect(wrapper.get('#text-output').text()).toBe('Hello')
   })
 
   it('単一チェックボックスが v-model で真偽値にバインディングされる', async () => {
@@ -19,10 +19,10 @@ describe('FormBindings', () => {
 
     const checkbox = wrapper.get('#checkbox')
     expect((checkbox.element as HTMLInputElement).checked).toBe(true)
-    expect(wrapper.get('label[for="checkbox"]').text()).toBe('Checked: true')
+    expect(wrapper.get('#checked-output').text()).toBe('Checked: true')
 
     await checkbox.setValue(false)
-    expect(wrapper.get('label[for="checkbox"]').text()).toBe('Checked: false')
+    expect(wrapper.get('#checked-output').text()).toBe('Checked: false')
   })
 
   it('複数チェックボックスが v-model で配列にバインディングされる', async () => {
@@ -35,17 +35,17 @@ describe('FormBindings', () => {
     expect((jack.element as HTMLInputElement).checked).toBe(true)
     expect((john.element as HTMLInputElement).checked).toBe(false)
     expect((mike.element as HTMLInputElement).checked).toBe(false)
-    expect(wrapper.findAll('p')[1].text()).toContain('"Jack"')
+    expect(wrapper.get('#checked-names-output').text()).toContain('"Jack"')
 
     await john.setValue(true)
     await mike.setValue(true)
-    const checkedText = wrapper.findAll('p')[1].text()
+    const checkedText = wrapper.get('#checked-names-output').text()
     expect(checkedText).toContain('"Jack"')
     expect(checkedText).toContain('"John"')
     expect(checkedText).toContain('"Mike"')
 
     await jack.setValue(false)
-    const afterUncheck = wrapper.findAll('p')[1].text()
+    const afterUncheck = wrapper.get('#checked-names-output').text()
     expect(afterUncheck).not.toContain('"Jack"')
     expect(afterUncheck).toContain('"John"')
     expect(afterUncheck).toContain('"Mike"')
@@ -56,32 +56,32 @@ describe('FormBindings', () => {
 
     expect((wrapper.get('#one').element as HTMLInputElement).checked).toBe(true)
     expect((wrapper.get('#two').element as HTMLInputElement).checked).toBe(false)
-    expect(wrapper.findAll('p')[2].text()).toBe('Picked: One')
+    expect(wrapper.get('#picked-output').text()).toBe('Picked: One')
 
     await wrapper.get('#two').setValue(true)
-    expect(wrapper.findAll('p')[2].text()).toBe('Picked: Two')
+    expect(wrapper.get('#picked-output').text()).toBe('Picked: Two')
   })
 
   it('セレクトボックスが v-model で選択値にバインディングされる', async () => {
     const wrapper = mount(FormBindings)
 
-    const select = wrapper.get('select:not([multiple])')
+    const select = wrapper.get('#select')
     expect((select.element as HTMLSelectElement).value).toBe('A')
-    expect(wrapper.findAll('p')[3].text()).toBe('Selected: A')
+    expect(wrapper.get('#selected-output').text()).toBe('Selected: A')
 
     await select.setValue('B')
-    expect(wrapper.findAll('p')[3].text()).toBe('Selected: B')
+    expect(wrapper.get('#selected-output').text()).toBe('Selected: B')
   })
 
   it('複数選択セレクトボックスが v-model で配列にバインディングされる', async () => {
     const wrapper = mount(FormBindings)
 
-    const multiSelect = wrapper.get('select[multiple]')
-    expect(wrapper.findAll('p')[4].text()).toContain('"A"')
-    expect(wrapper.findAll('p')[4].text()).not.toContain('"C"')
+    const multiSelect = wrapper.get('#multi-select')
+    expect(wrapper.get('#multi-selected-output').text()).toContain('"A"')
+    expect(wrapper.get('#multi-selected-output').text()).not.toContain('"C"')
 
     await multiSelect.setValue(['A', 'C'])
-    const multiText = wrapper.findAll('p')[4].text()
+    const multiText = wrapper.get('#multi-selected-output').text()
     expect(multiText).toContain('"A"')
     expect(multiText).toContain('"C"')
   })

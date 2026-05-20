@@ -18,7 +18,9 @@ const multiSelected = ref(['A'])
     id="textbox"
     v-model="text"
   >
-  <p>{{ text }}</p>
+  <p id="text-output">
+    {{ text }}
+  </p>
 
   <h2>Checkbox</h2>
   <input
@@ -26,7 +28,10 @@ const multiSelected = ref(['A'])
     v-model="checked"
     type="checkbox"
   >
-  <label for="checkbox">Checked: {{ checked }}</label>
+  <label
+    id="checked-output"
+    for="checkbox"
+  >Checked: {{ checked }}</label>
 
   <h2>Multi Checkbox</h2>
   <input
@@ -50,7 +55,9 @@ const multiSelected = ref(['A'])
     value="Mike"
   >
   <label for="mike">Mike</label>
-  <p>Checked names: {{ checkedNames }}</p>
+  <p id="checked-names-output">
+    Checked names: {{ checkedNames }}
+  </p>
 
   <h2>Radio</h2>
   <input
@@ -67,10 +74,15 @@ const multiSelected = ref(['A'])
     value="Two"
   >
   <label for="two">Two</label>
-  <p>Picked: {{ picked }}</p>
+  <p id="picked-output">
+    Picked: {{ picked }}
+  </p>
 
   <h2>Select</h2>
-  <select v-model="selected">
+  <select
+    id="select"
+    v-model="selected"
+  >
     <option
       disabled
       value=""
@@ -81,10 +93,13 @@ const multiSelected = ref(['A'])
     <option>B</option>
     <option>C</option>
   </select>
-  <p>Selected: {{ selected }}</p>
+  <p id="selected-output">
+    Selected: {{ selected }}
+  </p>
 
   <h2>Multi Select</h2>
   <select
+    id="multi-select"
     v-model="multiSelected"
     multiple
     style="width: 100px;"
@@ -93,7 +108,9 @@ const multiSelected = ref(['A'])
     <option>B</option>
     <option>C</option>
   </select>
-  <p>Selected: {{ multiSelected }}</p>
+  <p id="multi-selected-output">
+    Selected: {{ multiSelected }}
+  </p>
 </template>
 
 <style>
