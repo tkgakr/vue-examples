@@ -21,6 +21,11 @@ export const exampleRoutes = [
     component: () => import('@/examples/basic/conditionals-and-loops/ConditionalsAndLoops.vue'),
     meta: { category: 'Basic', title: 'Conditionals And Loops' },
   },
+  {
+    path: '/basic/form-bindings',
+    component: () => import('@/examples/basic/form-bindings/FormBindings.vue'),
+    meta: { category: 'Basic', title: 'Form Bindings' },
+  },
 ] satisfies RouteRecordRaw[]
 
 const routes: RouteRecordRaw[] = [
