@@ -1,10 +1,9 @@
 <script setup lang="ts">
-defineProps({
-  todo: {
-    type: Object,
-    required: true,
-  },
-})
+import type { Todo } from './types'
+
+defineProps<{
+  todo: Todo
+}>()
 </script>
 
 <template>
