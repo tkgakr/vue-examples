@@ -26,6 +26,11 @@ export const exampleRoutes = [
     component: () => import('@/examples/basic/form-bindings/FormBindings.vue'),
     meta: { category: 'Basic', title: 'Form Bindings' },
   },
+  {
+    path: '/basic/simple-component',
+    component: () => import('@/examples/basic/simple-component/SimpleComponent.vue'),
+    meta: { category: 'Basic', title: 'Simple Component' },
+  },
 ] satisfies RouteRecordRaw[]
 
 const routes: RouteRecordRaw[] = [
