@@ -31,6 +31,11 @@ export const exampleRoutes = [
     component: () => import('@/examples/basic/simple-component/SimpleComponent.vue'),
     meta: { category: 'Basic', title: 'Simple Component' },
   },
+  {
+    path: '/practical/markdown-editor',
+    component: () => import('@/examples/practical/markdown-editor/MarkdownEditor.vue'),
+    meta: { category: 'Practical', title: 'Markdown Editor' },
+  },
 ] satisfies RouteRecordRaw[]
 
 const routes: RouteRecordRaw[] = [
