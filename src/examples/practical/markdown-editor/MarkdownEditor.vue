@@ -22,14 +22,12 @@ const update = debounce((e) => {
       :value="input"
       @input="update"
     />
-    <!--
-    'v-html' directive can lead to XSS attack.
-    XSS の危険があるが学習用で公開しないため、サンプル通りサニタイズせずそのままHTML化する
-    -->
+    <!-- eslint-disable vue/no-v-html -- XSS の危険があるが学習用で公開しないため、サンプル通りサニタイズせずそのままHTML化する -->
     <div
       class="output"
       v-html="output"
     />
+    <!-- eslint-enable vue/no-v-html -->
   </div>
 </template>
 
