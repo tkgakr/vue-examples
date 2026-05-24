@@ -41,6 +41,11 @@ export const exampleRoutes = [
     component: () => import('@/examples/practical/fetching-data/FetchingData.vue'),
     meta: { category: 'Practical', title: 'Fetching Data' },
   },
+  {
+    path: '/practical/grid-with-sort-and-filter',
+    component: () => import('@/examples/practical/grid-with-sort-and-filter/GridWithSortAndFilter.vue'),
+    meta: { category: 'Practical', title: 'Grid With Sort And Filter' },
+  },
 ] satisfies RouteRecordRaw[]
 
 const routes: RouteRecordRaw[] = [
