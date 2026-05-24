@@ -1,13 +1,18 @@
 <!--
 再利用可能なグリッドコンポーネントを作成し、外部データと組み合わせて使用する例。
 -->
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 import DemoGrid from './Grid.vue'
 
+type Hero = {
+  name: string
+  power: number
+}
+
 const searchQuery = ref('')
-const gridColumns = ['name', 'power']
-const gridData = [
+const gridColumns: (keyof Hero)[] = ['name', 'power']
+const gridData: Hero[] = [
   { name: 'Chuck Norris', power: Infinity },
   { name: 'Bruce Lee', power: 9000 },
   { name: 'Jackie Chan', power: 7000 },
