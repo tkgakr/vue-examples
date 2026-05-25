@@ -32,8 +32,8 @@ const treeData = ref<TreeNode>({
 <template>
   <ul>
     <TreeItem
+      v-model="treeData"
       class="item"
-      :model="treeData"
     />
   </ul>
 </template>
