@@ -46,6 +46,11 @@ export const exampleRoutes = [
     component: () => import('@/examples/practical/grid-with-sort-and-filter/GridWithSortAndFilter.vue'),
     meta: { category: 'Practical', title: 'Grid With Sort And Filter' },
   },
+  {
+    path: '/practical/tree-view',
+    component: () => import('@/examples/practical/tree-view/TreeView.vue'),
+    meta: { category: 'Practical', title: 'Tree View' },
+  },
 ] satisfies RouteRecordRaw[]
 
 const routes: RouteRecordRaw[] = [
