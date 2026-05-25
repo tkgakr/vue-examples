@@ -1,13 +1,14 @@
-<script setup>
+<script setup lang="ts">
 import { computed, ref } from 'vue'
+import type { TreeNode } from './types'
 
-const props = defineProps({
-  model: Object,
-})
+const props = defineProps<{
+  model: TreeNode
+}>()
 
 const isOpen = ref(false)
 const isFolder = computed(() => {
-  return props.model.children && props.model.children.length
+  return !!props.model.children && props.model.children.length > 0
 })
 
 function toggle() {
@@ -23,6 +24,9 @@ function changeType() {
 }
 
 function addChild() {
+  if (!props.model.children) {
+    props.model.children = []
+  }
   props.model.children.push({ name: 'new stuff' })
 }
 </script>
@@ -43,9 +47,10 @@ function addChild() {
     >
       <!-- コンポーネントは自分自身を再帰的にレンダリングすることができる -->
       <TreeItem
-        v-for="model in model.children"
+        v-for="(child, index) in model.children"
+        :key="index"
         class="item"
-        :model="model"
+        :model="child"
       />
       <li
         class="add"

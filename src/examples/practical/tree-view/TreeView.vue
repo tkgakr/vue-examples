@@ -1,8 +1,9 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 import TreeItem from './TreeItem.vue'
+import type { TreeNode } from './types'
 
-const treeData = ref({
+const treeData = ref<TreeNode>({
   name: 'My Tree',
   children: [
     { name: 'hello' },
