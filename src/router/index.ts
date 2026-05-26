@@ -51,6 +51,11 @@ export const exampleRoutes = [
     component: () => import('@/examples/practical/tree-view/TreeView.vue'),
     meta: { category: 'Practical', title: 'Tree View' },
   },
+  {
+    path: '/practical/svg-graph',
+    component: () => import('@/examples/practical/svg-graph/SvgGraph.vue'),
+    meta: { category: 'Practical', title: 'Svg Graph' },
+  },
 ] satisfies RouteRecordRaw[]
 
 const routes: RouteRecordRaw[] = [
