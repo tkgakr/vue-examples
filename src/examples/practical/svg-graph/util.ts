@@ -1,3 +1,8 @@
+export type Point = {
+  x: number
+  y: number
+}
+
 /**
  * レーダーチャートの各頂点の座標（x, y）を計算する関数。
  *
@@ -7,12 +12,8 @@
  * 座標系は SVG のものに合わせており、中心 (100, 100) を基準にした
  * 200x200 のビューポートを想定している。
  *
- * @param {number} value - 頂点の値（0〜100 程度を想定）。大きいほど中心から遠ざかる。
- * @param {number} index - 頂点のインデックス（0 始まり）。
- * @param {number} total - 頂点の総数。多角形の辺の数に相当する。
- * @returns {{ x: number, y: number }} SVG 上に描画する座標。
  */
-export function valueToPoint(value, index, total) {
+export function valueToPoint(value: number, index: number, total: number): Point {
   // 回転前の基準点。常に Y 軸上の「真上」方向に置く。
   // x = 0 とし、y を負の値（SVG では上方向）にすることで頂点を真上に取る。
   const x = 0
