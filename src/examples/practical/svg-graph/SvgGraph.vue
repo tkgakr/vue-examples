@@ -32,56 +32,67 @@ function remove(stat) {
 </script>
 
 <template>
-  <svg
-    width="200"
-    height="200"
-  >
-    <PolyGraph :stats="stats" />
-  </svg>
+  <div id="demo">
+    <svg
+      width="200"
+      height="200"
+    >
+      <PolyGraph :stats="stats" />
+    </svg>
 
-  <!-- controls -->
-  <div v-for="stat in stats">
-    <label>{{ stat.label }}</label>
-    <input
-      v-model="stat.value"
-      type="range"
-      min="0"
-      max="100"
+    <!-- controls -->
+    <div
+      v-for="stat in stats"
+      :key="stat.label"
     >
-    <span>{{ stat.value }}</span>
-    <button
-      class="remove"
-      @click="remove(stat)"
-    >
-      X
-    </button>
+      <label>{{ stat.label }}</label>
+      <input
+        v-model="stat.value"
+        type="range"
+        min="0"
+        max="100"
+      >
+      <span>{{ stat.value }}</span>
+      <button
+        class="remove"
+        @click="remove(stat)"
+      >
+        X
+      </button>
+    </div>
+
+    <form id="add">
+      <input
+        v-model="newLabel"
+        name="newlabel"
+      >
+      <button @click="add">
+        Add a Stat
+      </button>
+    </form>
+
+    <pre id="raw">{{ stats }}</pre>
   </div>
-
-  <form id="add">
-    <input
-      v-model="newLabel"
-      name="newlabel"
-    >
-    <button @click="add">
-      Add a Stat
-    </button>
-  </form>
-
-  <pre id="raw">{{ stats }}</pre>
 </template>
 
-<style>
-polygon {
+<style scoped>
+#demo {
+  position: relative;
+  width: 600px;
+  height: 500px;
+}
+
+:deep(polygon) {
   fill: #42b983;
   opacity: 0.75;
 }
 
-circle {
+:deep(circle) {
   fill: transparent;
   stroke: #999;
 }
 
-text {
+:deep(text) {
   font-size: 10px;
   fill: #666;
 }

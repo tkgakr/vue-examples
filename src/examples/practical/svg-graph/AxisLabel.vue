@@ -3,9 +3,18 @@ import { computed } from 'vue'
 import { valueToPoint } from './util.js'
 
 const props = defineProps({
-  stat: Object,
-  index: Number,
-  total: Number,
+  stat: {
+    type: Object,
+    default: () => ({ label: '', value: 0 }),
+  },
+  index: {
+    type: Number,
+    default: 0,
+  },
+  total: {
+    type: Number,
+    default: 0,
+  },
 })
 
 const point = computed(() =>

@@ -4,7 +4,10 @@ import AxisLabel from './AxisLabel.vue'
 import { valueToPoint } from './util.js'
 
 const props = defineProps({
-  stats: Array,
+  stats: {
+    type: Array,
+    default: () => [],
+  },
 })
 
 const points = computed(() => {
@@ -28,6 +31,7 @@ const points = computed(() => {
     />
     <axis-label
       v-for="(stat, index) in stats"
+      :key="stat.label"
       :stat="stat"
       :index="index"
       :total="stats.length"
