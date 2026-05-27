@@ -1,24 +1,16 @@
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue'
-import { valueToPoint } from './util.js'
+import type { Stat } from './types'
+import { valueToPoint } from './util'
 
-const props = defineProps({
-  stat: {
-    type: Object,
-    default: () => ({ label: '', value: 0 }),
-  },
-  index: {
-    type: Number,
-    default: 0,
-  },
-  total: {
-    type: Number,
-    default: 0,
-  },
-})
+const props = defineProps<{
+  stat: Stat
+  index: number
+  total: number
+}>()
 
 const point = computed(() =>
-  valueToPoint(+props.stat.value + 10, props.index, props.total),
+  valueToPoint(props.stat.value + 10, props.index, props.total),
 )
 </script>
 

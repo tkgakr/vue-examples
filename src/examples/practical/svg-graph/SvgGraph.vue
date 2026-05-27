@@ -1,9 +1,10 @@
-<script setup>
+<script setup lang="ts">
 import { reactive, ref } from 'vue'
 import PolyGraph from './PolyGraph.vue'
+import type { Stat } from './types'
 
 const newLabel = ref('')
-const stats = reactive([
+const stats = reactive<Stat[]>([
   { label: 'A', value: 100 },
   { label: 'B', value: 100 },
   { label: 'C', value: 100 },
@@ -12,8 +13,7 @@ const stats = reactive([
   { label: 'F', value: 100 },
 ])
 
-function add(e) {
-  e.preventDefault()
+function add() {
   if (!newLabel.value) return
   stats.push({
     label: newLabel.value,
@@ -22,7 +22,7 @@ function add(e) {
   newLabel.value = ''
 }
 
-function remove(stat) {
+function remove(stat: Stat) {
   if (stats.length > 3) {
     stats.splice(stats.indexOf(stat), 1)
   } else {
@@ -47,7 +47,7 @@ function remove(stat) {
     >
       <label>{{ stat.label }}</label>
       <input
-        v-model="stat.value"
+        v-model.number="stat.value"
         type="range"
         min="0"
         max="100"
@@ -61,12 +61,15 @@ function remove(stat) {
       </button>
     </div>
 
-    <form id="add">
+    <form
+      id="add"
+      @submit.prevent="add"
+    >
       <input
         v-model="newLabel"
         name="newlabel"
       >
-      <button @click="add">
+      <button type="submit">
         Add a Stat
       </button>
     </form>

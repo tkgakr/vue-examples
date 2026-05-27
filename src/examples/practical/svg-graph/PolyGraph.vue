@@ -1,14 +1,12 @@
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue'
 import AxisLabel from './AxisLabel.vue'
-import { valueToPoint } from './util.js'
+import type { Stat } from './types'
+import { valueToPoint } from './util'
 
-const props = defineProps({
-  stats: {
-    type: Array,
-    default: () => [],
-  },
-})
+const props = defineProps<{
+  stats: Stat[]
+}>()
 
 const points = computed(() => {
   const total = props.stats.length
