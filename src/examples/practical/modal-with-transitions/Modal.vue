@@ -1,8 +1,10 @@
-<script setup>
-defineProps({
-  show: Boolean,
-})
-defineEmits(['close'])
+<script setup lang="ts">
+defineProps<{
+  show: boolean
+}>()
+defineEmits<{
+  (e: 'close'): void
+}>()
 </script>
 
 <template>

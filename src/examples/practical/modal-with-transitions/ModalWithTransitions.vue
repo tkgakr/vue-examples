@@ -1,11 +1,11 @@
 <!--
 カスタマイズ可能なスロットとCSSトランジションを備えたモーダルコンポーネント
 -->
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 import Modal from './Modal.vue'
 
-const showModal = ref(false)
+const showModal = ref<boolean>(false)
 </script>
 
 <template>
