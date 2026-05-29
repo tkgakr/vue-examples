@@ -61,6 +61,11 @@ export const exampleRoutes = [
     component: () => import('@/examples/practical/modal-with-transitions/ModalWithTransitions.vue'),
     meta: { category: 'Practical', title: 'Modal With Transitions' },
   },
+  {
+    path: '/practical/list-with-transitions',
+    component: () => import('@/examples/practical/list-with-transitions/ListWithTransitions.vue'),
+    meta: { category: 'Practical', title: 'List With Transitions' },
+  },
 ] satisfies RouteRecordRaw[]
 
 const routes: RouteRecordRaw[] = [
