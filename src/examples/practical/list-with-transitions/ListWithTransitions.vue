@@ -2,29 +2,29 @@
 組み込みの <TransitionGroup> を使用したFLIP リストの遷移。
 https://aerotwist.com/blog/flip-your-animations/
 -->
-<script setup>
+<script setup lang="ts">
 import { shuffle as _shuffle } from 'lodash-es'
 import { ref } from 'vue'
 
-const getInitialItems = () => [1, 2, 3, 4, 5]
-const items = ref(getInitialItems())
+const getInitialItems = (): number[] => [1, 2, 3, 4, 5]
+const items = ref<number[]>(getInitialItems())
 let id = items.value.length + 1
 
-function insert() {
+function insert(): void {
   const i = Math.round(Math.random() * items.value.length)
   items.value.splice(i, 0, id++)
 }
 
-function reset() {
+function reset(): void {
   items.value = getInitialItems()
   id = items.value.length + 1
 }
 
-function shuffle() {
+function shuffle(): void {
   items.value = _shuffle(items.value)
 }
 
-function remove(item) {
+function remove(item: number): void {
   const i = items.value.indexOf(item)
   if (i > -1) {
     items.value.splice(i, 1)
