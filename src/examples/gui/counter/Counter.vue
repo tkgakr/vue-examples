@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 
 const count = ref(0)
@@ -10,7 +10,3 @@ const count = ref(0)
     Count
   </button>
 </template>
-
-<style>
-
-</style>
