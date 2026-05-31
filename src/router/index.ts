@@ -66,6 +66,11 @@ export const exampleRoutes = [
     component: () => import('@/examples/practical/list-with-transitions/ListWithTransitions.vue'),
     meta: { category: 'Practical', title: 'List With Transitions' },
   },
+  {
+    path: '/gui/counter',
+    component: () => import('@/examples/gui/counter/Counter.vue'),
+    meta: { category: 'Gui', title: 'Counter' },
+  },
 ] satisfies RouteRecordRaw[]
 
 const routes: RouteRecordRaw[] = [
