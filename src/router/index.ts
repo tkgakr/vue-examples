@@ -71,6 +71,11 @@ export const exampleRoutes = [
     component: () => import('@/examples/gui/counter/Counter.vue'),
     meta: { category: 'Gui', title: 'Counter' },
   },
+  {
+    path: '/gui/temperature-converter',
+    component: () => import('@/examples/gui/temperature-converter/TemperatureConverter.vue'),
+    meta: { category: 'Gui', title: 'Temperature Converter' },
+  },
 ] satisfies RouteRecordRaw[]
 
 const routes: RouteRecordRaw[] = [
