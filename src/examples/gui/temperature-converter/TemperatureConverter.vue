@@ -19,11 +19,13 @@ function setF(e: Event) {
 
 <template>
   <input
+    id="celsius"
     type="number"
     :value="c"
     @change="setC"
   > Celsius =
   <input
+    id="fahrenheit"
     type="number"
     :value="f"
     @change="setF"
