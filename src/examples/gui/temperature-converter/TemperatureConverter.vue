@@ -1,15 +1,17 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 
-const c = ref(0)
-const f = ref(32)
+const c = ref<number>(0)
+const f = ref<number>(32)
 
-function setC(e, v = +e.target.value) {
+function setC(e: Event) {
+  const v = Number((e.target as HTMLInputElement).value)
   c.value = v
   f.value = v * (9 / 5) + 32
 }
 
-function setF(e, v = +e.target.value) {
+function setF(e: Event) {
+  const v = Number((e.target as HTMLInputElement).value)
   f.value = v
   c.value = (v - 32) * (5 / 9)
 }
