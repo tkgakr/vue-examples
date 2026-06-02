@@ -53,10 +53,12 @@ function pad(n: number, s: string = String(n)): string {
   </select>
 
   <input
+    id="departure-date"
     v-model="departureDate"
     type="date"
   >
   <input
+    id="return-date"
     v-model="returnDate"
     type="date"
     :disabled="!isReturn"
