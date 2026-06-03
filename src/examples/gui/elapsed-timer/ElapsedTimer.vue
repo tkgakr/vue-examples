@@ -36,13 +36,13 @@ onUnmounted(() => {
 
 <template>
   <label>
-    Elapsed Time: <progress :value="progressRate" />
+    経過時間: <progress :value="progressRate" />
   </label>
 
   <div>{{ (elapled / 1000).toFixed(1) }}s</div>
 
   <div>
-    Duration: <input
+    設定時間: <input
       v-model="duration"
       type="range"
       min="1"
