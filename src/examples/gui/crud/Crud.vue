@@ -56,12 +56,14 @@ function hasValidInput(): boolean {
 <template>
   <div>
     <input
+      id="prefix"
       v-model="prefix"
       placeholder="Filter prefix"
     >
   </div>
 
   <select
+    id="name-list"
     v-model="selected"
     size="5"
   >
@@ -73,17 +75,32 @@ function hasValidInput(): boolean {
     </option>
   </select>
 
-  <label>Name: <input v-model="first"></label>
-  <label>Surname: <input v-model="last"></label>
+  <label for="first-name">Name: <input
+    id="first-name"
+    v-model="first"
+  ></label>
+  <label for="last-name">Surname: <input
+    id="last-name"
+    v-model="last"
+  ></label>
 
   <div class="buttons">
-    <button @click="create">
+    <button
+      id="create"
+      @click="create"
+    >
       Create
     </button>
-    <button @click="update">
+    <button
+      id="update"
+      @click="update"
+    >
       Update
     </button>
-    <button @click="del">
+    <button
+      id="delete"
+      @click="del"
+    >
       Delete
     </button>
   </div>
