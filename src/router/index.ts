@@ -86,6 +86,11 @@ export const exampleRoutes = [
     component: () => import('@/examples/gui/elapsed-timer/ElapsedTimer.vue'),
     meta: { category: 'Gui', title: 'Elapsed Timer' },
   },
+  {
+    path: '/gui/crud',
+    component: () => import('@/examples/gui/crud/Crud.vue'),
+    meta: { category: 'Gui', title: 'Crud' },
+  },
 ] satisfies RouteRecordRaw[]
 
 const routes: RouteRecordRaw[] = [
