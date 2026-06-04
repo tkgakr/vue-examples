@@ -1,21 +1,23 @@
-<script setup>
+<script setup lang="ts">
 import { computed, reactive, ref, watch } from 'vue'
 
-const names = reactive(['Emil, Hans', 'Mustermann, Max', 'Tisch, Roman'])
-const selected = ref('')
-const prefix = ref('')
-const first = ref('')
-const last = ref('')
+const names = reactive<string[]>(['Emil, Hans', 'Mustermann, Max', 'Tisch, Roman'])
+const selected = ref<string>('')
+const prefix = ref<string>('')
+const first = ref<string>('')
+const last = ref<string>('')
 
 const filterNames = computed(() =>
   names.filter((n) => n.toLowerCase().startsWith(prefix.value.toLowerCase())),
 )
 
 watch(selected, (name) => {
-  [last.value, first.value] = name.split(', ')
+  const [surname = '', givenName = ''] = name.split(', ')
+  last.value = surname
+  first.value = givenName
 })
 
-function create() {
+function create(): void {
   if (hasValidInput()) {
     const fullName = `${last.value}, ${first.value}`
     if (!names.includes(fullName)) {
@@ -25,23 +27,29 @@ function create() {
   }
 }
 
-function update() {
+function update(): void {
   if (hasValidInput() && selected.value) {
     const i = names.indexOf(selected.value)
+    if (i === -1) {
+      return
+    }
     names[i] = selected.value = `${last.value}, ${first.value}`
   }
 }
 
-function del() {
+function del(): void {
   if (selected.value) {
     const i = names.indexOf(selected.value)
+    if (i === -1) {
+      return
+    }
     names.splice(i, 1)
     selected.value = first.value = last.value = ''
   }
 }
 
-function hasValidInput() {
-  return first.value.trim() && last.value.trim()
+function hasValidInput(): boolean {
+  return Boolean(first.value.trim() && last.value.trim())
 }
 </script>
 
