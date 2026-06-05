@@ -7,7 +7,7 @@ const circles = ref([])
 const selected = ref()
 const adjusting = ref(false)
 
-function onClick({ clientX: x, clientY: y }) {
+function onClick({ offsetX: x, offsetY: y }) {
   if (adjusting.value) {
     adjusting.value = false
     selected.value = null
