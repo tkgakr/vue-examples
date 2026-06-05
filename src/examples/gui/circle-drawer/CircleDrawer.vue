@@ -73,7 +73,8 @@ function clone(circles) {
       </p>
     </foreignObject>
     <circle
-      v-for="circle in circles"
+      v-for="(circle, i) in circles"
+      :key="i"
       :cx="circle.cx"
       :cy="circle.cy"
       :r="circle.r"
