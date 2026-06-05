@@ -149,7 +149,7 @@ circle {
   top: calc(50% - 50px);
   left: calc(50% - 175px);
   background: #fff;
-  width: 350px;
+  width: 400px;
   height: 100px;
   padding: 5px;
   box-sizing: border-box;
