@@ -1,16 +1,22 @@
-<script setup>
+<script setup lang="ts">
 import { ref, shallowReactive, toRaw } from 'vue'
 
-const history = shallowReactive([[]])
+interface Circle {
+  cx: number
+  cy: number
+  r: number
+}
+
+const history = shallowReactive<Circle[][]>([[]])
 const index = ref(0)
-const circles = ref([])
-const selected = ref()
+const circles = ref<Circle[]>([])
+const selected = ref<Circle>()
 const adjusting = ref(false)
 
-function onClick({ offsetX: x, offsetY: y }) {
+function onClick({ offsetX: x, offsetY: y }: MouseEvent) {
   if (adjusting.value) {
     adjusting.value = false
-    selected.value = null
+    selected.value = undefined
     push()
     return
   }
@@ -31,7 +37,7 @@ function onClick({ offsetX: x, offsetY: y }) {
   }
 }
 
-function adjust(circle) {
+function adjust(circle: Circle) {
   selected.value = circle
   adjusting.value = true
 }
@@ -50,7 +56,7 @@ function redo() {
   circles.value = clone(history[++index.value])
 }
 
-function clone(circles) {
+function clone(circles: Circle[]): Circle[] {
   return circles.map((c) => ({ ...c }))
 }
 </script>
@@ -105,9 +111,9 @@ function clone(circles) {
     @click.stop
   >
     <!-- <p>Adjust radius of circle at ({{ selected.cx }}, {{ selected.cy }})</p> -->
-    <p>({{ selected.cx }}, {{ selected.cy }}) における円の半径を調整してください</p>
+    <p>({{ selected?.cx }}, {{ selected?.cy }}) における円の半径を調整してください</p>
     <input
-      v-model="selected.r"
+      v-model="selected!.r"
       type="range"
       min="1"
       max="300"
