@@ -122,8 +122,9 @@ body {
 }
 
 svg {
-  width: 100vw;
-  height: 100vw;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
   background-color: #eee;
 }
 
