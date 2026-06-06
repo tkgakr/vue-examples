@@ -96,6 +96,11 @@ export const exampleRoutes = [
     component: () => import('@/examples/gui/circle-drawer/CircleDrawer.vue'),
     meta: { category: 'Gui', title: 'Circle Drawer' },
   },
+  {
+    path: '/gui/cells',
+    component: () => import('@/examples/gui/cells/Cells.vue'),
+    meta: { category: 'Gui', title: 'Cells' },
+  },
 ] satisfies RouteRecordRaw[]
 
 const routes: RouteRecordRaw[] = [
