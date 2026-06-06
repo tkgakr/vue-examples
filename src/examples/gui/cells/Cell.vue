@@ -3,8 +3,8 @@ import { ref } from 'vue'
 import { cells, evalCell } from './store.js'
 
 const props = defineProps({
-  c: Number,
-  r: Number,
+  c: { type: Number, required: true },
+  r: { type: Number, required: true },
 })
 
 const editing = ref(false)
