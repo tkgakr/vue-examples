@@ -7,8 +7,8 @@ const ROWS = 20
 // cells[列][行] の形でアクセスでき、値が変わると Vue が自動で再描画する。
 // 初期値は全セル空文字（''）。
 export const cells = reactive(
-  Array.from(Array(COLS).keys()).map((i) =>
-    Array.from(Array(ROWS).keys()).map((i) => '')),
+  Array.from(Array(COLS).keys()).map(() =>
+    Array.from(Array(ROWS).keys()).map(() => '')),
 )
 
 // adapted from https://codesandbox.io/s/jotai-7guis-task7-cells-mzoit?file=/src/atoms.ts
