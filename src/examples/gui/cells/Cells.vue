@@ -2,9 +2,9 @@
 https://eugenkiss.github.io/7guis/tasks/#cells
 -->
 
-<script setup>
+<script setup lang="ts">
 import Cell from './Cell.vue'
-import { cells } from './store.js'
+import { cells } from './store'
 
 const cols = cells.map((_, i) => String.fromCharCode(65 + i))
 </script>
