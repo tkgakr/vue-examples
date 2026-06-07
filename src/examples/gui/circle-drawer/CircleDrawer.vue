@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, shallowReactive, toRaw } from 'vue'
+import { ref, shallowReactive } from 'vue'
 
 interface Circle {
   cx: number
@@ -45,7 +45,6 @@ function adjust(circle: Circle) {
 function push() {
   history.length = ++index.value
   history.push(clone(circles.value))
-  console.log(toRaw(history))
 }
 
 function undo() {
